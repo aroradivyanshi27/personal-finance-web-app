@@ -57,4 +57,4 @@ export interface PaymentMethodMeta {
   icon: string;
 }
 
-export type View = 'dashboard' | 'transactions' | 'budgets' | 'goals';
+export type View = 'dashboard' | 'transactions' | 'budgets' | 'goals' | 'ai-assistant';

@@ -8,6 +8,7 @@ import { Dashboard } from './views/Dashboard';
 import { Transactions } from './views/Transactions';
 import { Budgets } from './views/Budgets';
 import { Goals } from './views/Goals';
+import { AIAssistant } from './views/AIAssistant';
 import { TransactionForm } from './components/TransactionForm';
 import { ToastContainer } from './components/ui/Toast';
 import type { View, Transaction } from './types';
@@ -39,6 +40,7 @@ function AppContent() {
           {view === 'transactions' && <Transactions />}
           {view === 'budgets' && <Budgets />}
           {view === 'goals' && <Goals />}
+          {view === 'ai-assistant' && <AIAssistant />}
         </div>
       </main>
 

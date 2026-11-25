@@ -1,5 +1,5 @@
 import type { View } from '../types';
-import { Wallet, ArrowLeftRight, Target, PieChart } from 'lucide-react';
+import { Wallet, ArrowLeftRight, Target, PieChart, Sparkles } from 'lucide-react';
 import { Icon } from './ui/Icon';
 
 interface SidebarProps {
@@ -12,6 +12,7 @@ const NAV_ITEMS: { key: View; label: string; icon: typeof Wallet }[] = [
   { key: 'transactions', label: 'Transactions', icon: ArrowLeftRight },
   { key: 'budgets', label: 'Budgets', icon: PieChart },
   { key: 'goals', label: 'Goals', icon: Target },
+  { key: 'ai-assistant', label: 'AI Assistant', icon: Sparkles },
 ];
 
 export function Sidebar({ view, onNavigate }: SidebarProps) {
