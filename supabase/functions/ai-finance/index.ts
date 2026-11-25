@@ -1,5 +1,6 @@
-// Edge function for OpenAI API communication.
+// Edge function for OpenAI API communication via the Responses API.
 // The OPENAI_API_KEY environment variable is set on the Supabase project.
+// Model: gpt-4.1-mini
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",

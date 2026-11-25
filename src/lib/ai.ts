@@ -78,15 +78,23 @@ const EDGE_FUNCTION_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/ai-
 
 const headers: Record<string, string> = {
   Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+  apikey: import.meta.env.VITE_SUPABASE_ANON_KEY,
   'Content-Type': 'application/json',
 };
 
 async function callEdgeFunction(body: Record<string, unknown>): Promise<string> {
-  const response = await fetch(EDGE_FUNCTION_URL, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify(body),
-  });
+  let response: Response;
+  try {
+    response = await fetch(EDGE_FUNCTION_URL, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(body),
+    });
+  } catch {
+    throw new Error(
+      'Could not reach the AI service. This may be a network connectivity issue — please check your internet connection and try again.'
+    );
+  }
 
   if (!response.ok) {
     let errorMsg = `Request failed (${response.status})`;
@@ -100,6 +108,9 @@ async function callEdgeFunction(body: Record<string, unknown>): Promise<string> 
   }
 
   const data = await response.json();
+  if (data?.error) {
+    throw new Error(data.error);
+  }
   if (!data?.result) {
     throw new Error('Received an empty response from the AI service.');
   }
