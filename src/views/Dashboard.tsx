@@ -15,6 +15,9 @@ import {
   PieChart,
   Target,
   Trophy,
+  Sparkles,
+  BarChart3,
+  ArrowRight,
 } from 'lucide-react';
 import { useFinance } from '../context/FinanceContext';
 import { useTheme } from '../context/ThemeContext';
@@ -213,6 +216,72 @@ export function Dashboard({ onNavigate, onAddTransaction }: DashboardProps) {
           }
           subtitle={health.label}
         />
+      </div>
+
+      {/* AI Finance Assistant */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
+        <Card
+          className="p-5 md:col-span-1 bg-gradient-to-br from-brand-50 to-blue-50 dark:from-brand-900/20 dark:to-blue-900/20 border border-brand-100 dark:border-brand-900/30 cursor-pointer"
+          hover
+          onClick={() => onNavigate('ai-assistant')}
+        >
+          <div className="flex items-start gap-3">
+            <div className="shrink-0 w-11 h-11 rounded-xl bg-brand-100 dark:bg-brand-900/40 flex items-center justify-center">
+              <Sparkles className="w-5 h-5 text-brand-600 dark:text-brand-400" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-bold text-ink-900 dark:text-white">AI Finance Assistant</p>
+              <p className="text-xs text-ink-500 dark:text-ink-400 mt-1 leading-relaxed">
+                Ask questions about your spending and get instant AI-powered advice.
+              </p>
+              <span className="inline-flex items-center gap-1 text-xs font-semibold text-brand-600 dark:text-brand-400 mt-3">
+                Start chatting <ArrowRight className="w-3.5 h-3.5" />
+              </span>
+            </div>
+          </div>
+        </Card>
+
+        <Card
+          className="p-5 cursor-pointer"
+          hover
+          onClick={() => onNavigate('ai-assistant')}
+        >
+          <div className="flex items-start gap-3">
+            <div className="shrink-0 w-11 h-11 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+              <BarChart3 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-bold text-ink-900 dark:text-white">Spending Analysis</p>
+              <p className="text-xs text-ink-500 dark:text-ink-400 mt-1 leading-relaxed">
+                Get an AI breakdown of your spending patterns and trends.
+              </p>
+              <span className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 dark:text-blue-400 mt-3">
+                Analyze now <ArrowRight className="w-3.5 h-3.5" />
+              </span>
+            </div>
+          </div>
+        </Card>
+
+        <Card
+          className="p-5 cursor-pointer"
+          hover
+          onClick={() => onNavigate('ai-assistant')}
+        >
+          <div className="flex items-start gap-3">
+            <div className="shrink-0 w-11 h-11 rounded-xl bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
+              <PiggyBank className="w-5 h-5 text-amber-600 dark:text-amber-400" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-bold text-ink-900 dark:text-white">Smart Saving Tips</p>
+              <p className="text-xs text-ink-500 dark:text-ink-400 mt-1 leading-relaxed">
+                Personalized saving suggestions based on your actual expenses.
+              </p>
+              <span className="inline-flex items-center gap-1 text-xs font-semibold text-amber-600 dark:text-amber-400 mt-3">
+                Get tips <ArrowRight className="w-3.5 h-3.5" />
+              </span>
+            </div>
+          </div>
+        </Card>
       </div>
 
       {/* Charts row */}
